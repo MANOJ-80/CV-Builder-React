@@ -15,27 +15,32 @@ export default function App() {
     address: '',
   });
 
-  const [formData2, setFormData2] = useState(
+  const [formData2, setFormData2] = useState([
     {
         institute: '',
         study: '',
         timeline: '',
         score: '',
     }
+  ]
   );
 
-  const [formData3, setFormData3] = useState({
-    company: '',
-    position: '',
-    timeline: '',
-    description: '',
-  });
+  const [formData3, setFormData3] = useState([
+    {
+      company: '',
+      position: '',
+      timeline: '',
+      description: ''
+    }
+
+  ]
+);
 
   return (
     <>
   <div className="flex justify-center">
     
-    <div className="flex gap-20">
+    <div className="flex gap-20 sm:flex-wrap justify-center">
      
      <div className='flex flex-col mt-10 p-7 w-120'>
        <Personal formData={formData1} setFormData={setFormData1} />
@@ -43,7 +48,8 @@ export default function App() {
        <Experience formData={formData3} setFormData={setFormData3}/>
       </div>
 
-      <div className="w-210 mt-20 border-2 border-amber-400 m-6">
+     
+      <div className="w-210 mt-20 border-2 border-amber-400 border-none m-6">
       <View Personal={formData1} Education={formData2} Experience={formData3}/>
       </div>
     </div>

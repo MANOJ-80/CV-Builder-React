@@ -2,15 +2,21 @@ import React from 'react'
 import { MdEmail } from "react-icons/md";
 import { BsFillTelephoneFill } from "react-icons/bs";
 import { FaLocationDot } from "react-icons/fa6";
+import Card from './Card';
 
 
 const View = ({Personal, Education, Experience}) => {
+  console.log("Personal",Personal);
+  console.log("Education",Education);
+  console.log("Experience",Experience);
 
 
   console.log("Personal : ",Personal)
   return (
+
     <>
-    <div className='border mt-2 rounded bg-blue-300 h-30 w-full flex flex-col itams-center'>
+       {/*Header Section*/}
+    <div className='mt-2 space-x-1 text-white rounded bg-[#03045e] h-30 w-full flex flex-col shadow-md shadow-blue-400 itams-center'>
         
         <div className='mt-4'>
           <h2 className="text-4xl text-center font-semibold">{Personal.name}</h2>
@@ -38,30 +44,53 @@ const View = ({Personal, Education, Experience}) => {
         
       </div>
 
-    
+    {/*Education*/}
 
-    <div className='flex justify-center py-3'>
+    <div className='flex flex-col items-center py-8'>
 
-    <div className='flex items-center justify-center bg-gray-200 h-15 w-180 border border-amber-600'>
+    <div className='flex items-center justify-center bg-gray-200 h-15 w-180 rounded-xl shadow-gray-700 shadow-xl'>
         <h2 className='text-center text-black font-extrabold text-2xl'>Education</h2>
     </div>
 
+   <div className='mt-8'>
+
+   {
+      Education.map((data) => (
+        <Card data={data}/>
+        ))
+   }
+
+   </div>
+
+
+    
+
     </div>
 
     
-    <hr class="h-px my-8 bg-gray-200 border-0 dark:bg-gray-700"></hr>
+    <hr className="h-px my-8 bg-gray-200 border-0 dark:bg-gray-700"></hr>
 
 
 
+    {/*Experience*/}
 
-    <div className='flex justify-center py-2'>
+    <div className='flex flex-col items-center py-2'>
 
-    <div className='flex items-center justify-center bg-gray-200 h-15 w-180 border border-amber-600'>
+    <div className='flex items-center justify-center bg-gray-200 h-15 w-180 rounded-xl shadow-gray-700 shadow-xl'>
         <h2 className='text-center text-black font-extrabold text-2xl'>Experience</h2>
     </div>
 
+
+    <div className='mt-8'>
+      {
+        Experience.map((data) => (
+        <Card data={data}/>
+        ))
+      }
     </div>
-    <hr class="h-px my-8 bg-gray-200 border-0 dark:bg-gray-700"></hr>
+
+    </div>
+    <hr className="h-px my-8 bg-gray-200 border-0 dark:bg-gray-700"></hr>
     </>
   )
 }
